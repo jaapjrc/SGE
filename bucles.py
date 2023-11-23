@@ -87,4 +87,85 @@ def listaNumeros():
             
 listaNumeros()
 
+def listaNumerosUsuario():
+    userInput = int(input("Introduce un número (0 para detener el programa): "))
+    lista = []
+    while (userInput != 0):
+        lista.append(userInput)
+        userInput = int(input("Introduce un número (0 para detener el programa): "))
+    print(lista)
+
+            
+listaNumerosUsuario()
+
+def listaSumaNumerosUsuario():
+    userInput = int(input("Introduce un número (0 para detener el programa): "))
+    lista = []
+    suma = 0
+    while (userInput != 0):
+        lista.append(userInput)
+        suma += userInput
+        userInput = int(input("Introduce un número (0 para detener el programa): "))
+    print(lista)
+    print(suma)
+            
+listaSumaNumerosUsuario()
+
+def multiplicacionLista():
+    lista = [5,69,4,16,-25]
+    resultado = 1
+    for n in lista:
+        resultado *= n
+    print(resultado)
     
+multiplicacionLista()
+
+def mayoresDe10():
+    lista = [5,69,4,16,-25]
+    for n in lista:
+        if n > 10:
+            print(n)
+            
+mayoresDe10()
+    
+def sumaImpares():
+    lista = [5,69,4,16,-25]
+    suma = 0
+    for n in lista:
+        if n % 2 != 0:
+            suma += n
+    print(suma)
+            
+sumaImpares()
+
+def sumaPosicionesImpares():
+    lista = [5,69,4,16,-25]
+    suma = 0
+    for n in range(0, len(lista), 2):
+        suma += n
+    print(suma)
+            
+sumaPosicionesImpares()
+
+def sumaPosicionesImparesyPares():
+    lista = [5,69,4,16,-25]
+    sumaImpares = 0
+    sumaPares = 0
+    for n in range(0, len(lista), 2):
+        sumaImpares += n
+    for n in range(1, len(lista), 2):
+        sumaPares += n
+    print(sumaImpares)
+    print(sumaPares)
+            
+sumaPosicionesImparesyPares()
+
+def sumaMayoresDe10():
+    lista = [5,69,4,16,-25]
+    suma = 0
+    for n in lista:
+        if n > 10:
+            suma += n
+    print(suma)
+            
+sumaMayoresDe10()
