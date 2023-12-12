@@ -14,7 +14,29 @@ def mundialFutebol():
     rivales = ["Costa Rica", "Alemania", "Japón"]
     golesAFavor = [7,1,2]
     golesEnContra = [0,1,0]
-    resultado = f"Partidos jugados: {len(rivales)}"
+    partidosGanados = 0
+    partidosEmpatados = 0
+    partidosPerdidos = 0
+    golesAFavorTotales = 0
+    golesEnContraTotales = 0
+    puntosTotales = 3
+    for i in range(3):
+        if golesAFavor[i] > golesEnContra[i]:
+            partidosGanados += 1
+        if golesAFavor[i] == golesEnContra[i]:
+            partidosEmpatados += 1
+        if golesAFavor[i] < golesEnContra[i]:
+            partidosPerdidos += 1
+        golesAFavorTotales += golesAFavor[i]
+        golesEnContraTotales += golesEnContra[i]
+    puntosTotales *= partidosGanados
+    puntosTotales += partidosEmpatados
+    resultado = f"Partidos jugados: {len(rivales)} Partidos ganados: {partidosGanados} Partidos empatados: {partidosEmpatados} Partidos perdidos: {partidosPerdidos} Goles a favor totales: {golesAFavorTotales} Goles en contra totales: {golesEnContraTotales} Diferencia de goles: {golesAFavorTotales-golesEnContraTotales} Puntos: {puntosTotales}"
+    return resultado
+            
+print(mundialFutebol())
+    
+            
     
 #Ejercicio 3
 def addDiccionario():
