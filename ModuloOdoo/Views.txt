@@ -1,0 +1,211 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="mimodulo2024.carta_tree">
+      <field name="name">mimodulo2024.carta.tree</field>
+      <field name="model">mimodulo2024.carta</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="descripcion"/>
+          <field name="precioUni"/>
+          <field name="cantidad"/>
+          <field name="precioTot"/>
+          <field name="fecha"/>
+          <field name="estado"/>
+          <field name="idioma"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="mimodulo2024.carta_form">
+      <field name="name">mimodulo2024.carta.form</field>
+      <field name="model">mimodulo2024.carta</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+          <field name="name"/>
+          <field name="descripcion"/>
+          <field name="precioUni"/>
+          <field name="cantidad"/>
+          <field name="precioTot"/>
+          <field name="fecha"/>
+          <field name="estado"/>
+          <field name="idioma"/>
+          <field name="tienda"/>
+          <field name="vendedor"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+        <record model="ir.ui.view" id="mimodulo2024.tienda_tree">
+      <field name="name">mimodulo2024.tienda.tree</field>
+      <field name="model">mimodulo2024.tienda</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="ciudad"/>
+          <field name="pais"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="mimodulo2024.tienda_form">
+      <field name="name">mimodulo2024.tienda.form</field>
+      <field name="model">mimodulo2024.tienda</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+          <field name="name"/>
+          <field name="ciudad"/>
+          <field name="pais"/>
+          <field name="cartas">
+            <tree>
+              <field name="name"/>
+              <field name="descripcion"/>
+              <field name="precioUni"/>
+              <field name="cantidad"/>
+              <field name="precioTot"/>
+              <field name="fecha"/>
+              <field name="estado"/>
+              <field name="idioma"/>
+            </tree>
+          </field>
+          <field name="vendedores">
+            <tree>
+              <field name="name"/>
+              <field name="email"/>
+              <field name="telefono"/>
+              <field name="categoria"/>
+              <field name="tienda"/>
+            </tree>
+          </field>
+          </group>
+        </form>
+      </field>
+    </record>
+
+            <record model="ir.ui.view" id="mimodulo2024.vendedor_tree">
+      <field name="name">mimodulo2024.vendedor.tree</field>
+      <field name="model">mimodulo2024.vendedor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="email"/>
+          <field name="telefono"/>
+          <field name="categoria"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="mimodulo2024.vendedor_form">
+      <field name="name">mimodulo2024.vendedor.form</field>
+      <field name="model">mimodulo2024.vendedor</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+          <field name="name"/>
+          <field name="email"/>
+          <field name="telefono"/>
+          <field name="categoria"/>
+          <field name="tienda"/>
+          <field name="cartas">
+            <tree>
+              <field name="name"/>
+              <field name="descripcion"/>
+              <field name="precioUni"/>
+              <field name="cantidad"/>
+              <field name="precioTot"/>
+              <field name="fecha"/>
+              <field name="estado"/>
+              <field name="idioma"/>
+            </tree>
+          </field>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mimodulo2024.carta_action_window">
+      <field name="name">mimodulo2024.carta.action_window</field>
+      <field name="res_model">mimodulo2024.carta</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mimodulo2024.tienda_action_window">
+      <field name="name">mimodulo2024.tienda.action_window</field>
+      <field name="res_model">mimodulo2024.tienda</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.actions.act_window" id="mimodulo2024.vendedor_action_window">
+      <field name="name">mimodulo2024.vendedor.action_window</field>
+      <field name="res_model">mimodulo2024.vendedor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="MiModulo2024" id="mimodulo2024.menu_root"/>
+    <!-- menu categories -->
+
+    <menuitem name="Cartas" id="mimodulo2024.carta_menu" parent="mimodulo2024.menu_root" action="mimodulo2024.carta_action_window"/>
+    <menuitem name="Tiendas" id="mimodulo2024.tienda_menu" parent="mimodulo2024.menu_root" action="mimodulo2024.tienda_action_window"/>
+    <menuitem name="Vendedores" id="mimodulo2024.vendedor_menu" parent="mimodulo2024.menu_root" action="mimodulo2024.vendedor_action_window"/>
+
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="mimodulo2024.list">
+      <field name="name">mimodulo2024 list</field>
+      <field name="model">mimodulo2024.mimodulo2024</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="mimodulo2024.action_window">
+      <field name="name">mimodulo2024 window</field>
+      <field name="res_model">mimodulo2024.mimodulo2024</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="mimodulo2024.action_server">
+      <field name="name">mimodulo2024 server</field>
+      <field name="model_id" ref="model_mimodulo2024_mimodulo2024"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="mimodulo2024" id="mimodulo2024.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="mimodulo2024.menu_1" parent="mimodulo2024.menu_root"/>
+    <menuitem name="Menu 2" id="mimodulo2024.menu_2" parent="mimodulo2024.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="mimodulo2024.menu_1_list" parent="mimodulo2024.menu_1"
+              action="mimodulo2024.action_window"/>
+    <menuitem name="Server to list" id="mimodulo2024" parent="mimodulo2024.menu_2"
+              action="mimodulo2024.action_server"/>
+-->
+  </data>
+</odoo>

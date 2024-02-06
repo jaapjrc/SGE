@@ -1,0 +1,57 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields, api
+
+class mimodulo2024_carta(models.Model):
+    _name = "mimodulo2024.carta"
+
+    name = fields.Char(string="Nombre",required=True)
+    descripcion = fields.Text(string="Descripción")
+    idioma = fields.Char(string="Idioma")
+    precioUni = fields.Float(string="Precio unitario")
+    cantidad = fields.Integer(string="Cantidad")
+    precioTot = fields.Float(string="Precio total",compute="_value_pc",store=True)
+    fecha = fields.Date(string="Fecha de compra")
+    estado = fields.Selection([('0','Bueno'),('1','Regular'),('2','Malo')],string="Estado",default="0")
+    tienda = fields.Many2one("mimodulo2024.tienda",string="Tienda",ondelete="cascade")
+    vendedor = fields.Many2one("mimodulo2024.vendedor",string="Vendedor",ondelete="cascade")
+
+    @api.depends('precioUni','cantidad')
+    def _value_pc(self):
+        for record in self:
+            record.precioTot = float(record.cantidad) * record.precioUni
+
+class mimodulo2024_tienda(models.Model):
+    _name = "mimodulo2024.tienda"
+
+    name = fields.Char(string="Nombre")
+    ciudad = fields.Char(string="Ciudad")
+    pais = fields.Char(string="País")
+    cartas = fields.One2many("mimodulo2024.carta","tienda",string="Cartas")
+    vendedores = fields.One2many("mimodulo2024.vendedor","tienda",string="Cartas")
+
+class mimodulo2024_vendedor(models.Model):
+    _name = "mimodulo2024.vendedor"
+
+    name = fields.Char(string="Nombre")
+    email = fields.Char(string="Email")
+    telefono = fields.Char(string="Teléfono")
+    categoria = fields.Selection([('0','Particular'),('1','Profesional'),('2','Powerseller')],string="Estado",default="0")
+    cartas = fields.One2many("mimodulo2024.carta","vendedor",string="Cartas")
+    tienda = fields.Many2one("mimodulo2024.tienda",string="Tienda",ondelete="cascade")
+
+
+# class mimodulo2024(models.Model):
+#     _name = 'mimodulo2024.mimodulo2024'
+#     _description = 'mimodulo2024.mimodulo2024'
+
+#     name = fields.Char()
+#     value = fields.Integer()
+#     value2 = fields.Float(compute="_value_pc", store=True)
+#     description = fields.Text()
+#
+#     @api.depends('value')
+#     def _value_pc(self):
+#         for record in self:
+#             record.value2 = float(record.value) / 100
+

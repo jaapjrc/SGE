@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_mimodulo2024_carta,mimodulo2024.carta,model_mimodulo2024_carta,base.group_erp_manager,1,1,1,1
+access_mimodulo2024_tienda,mimodulo2024.tienda,model_mimodulo2024_tienda,base.group_erp_manager,1,1,1,1
+access_mimodulo2024_vendedor,mimodulo2024.vendedor,model_mimodulo2024_vendedor,base.group_erp_manager,1,1,1,1
+
+access_mimodulo2024_carta_user,mimodulo2024.carta.user,model_mimodulo2024_carta,base.group_user,1,0,0,0
+access_mimodulo2024_tienda_user,mimodulo2024.tienda.user,model_mimodulo2024_tienda,base.group_user,1,0,0,0
+access_mimodulo2024_vendedor_user,mimodulo2024.vendedor.user,model_mimodulo2024_vendedor,base.group_user,1,0,0,0
