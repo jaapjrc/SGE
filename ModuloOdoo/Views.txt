@@ -127,19 +127,19 @@
     </record>
 
     <record model="ir.actions.act_window" id="mimodulo2024.carta_action_window">
-      <field name="name">mimodulo2024.carta.action_window</field>
+      <field name="name">Cartas</field>
       <field name="res_model">mimodulo2024.carta</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="mimodulo2024.tienda_action_window">
-      <field name="name">mimodulo2024.tienda.action_window</field>
+      <field name="name">Tiendas</field>
       <field name="res_model">mimodulo2024.tienda</field>
       <field name="view_mode">tree,form</field>
     </record>
         
     <record model="ir.actions.act_window" id="mimodulo2024.vendedor_action_window">
-      <field name="name">mimodulo2024.vendedor.action_window</field>
+      <field name="name">Vendedores</field>
       <field name="res_model">mimodulo2024.vendedor</field>
       <field name="view_mode">tree,form</field>
     </record>
